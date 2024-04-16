@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A0143402BCE73D500409C46 /* Predator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01433F2BCE73D500409C46 /* Predator.swift */; };
+		1A0143432BCE940700409C46 /* PredatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0143422BCE940700409C46 /* PredatorViewCell.swift */; };
+		1A0143452BCEFCB600409C46 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0143442BCEFCB600409C46 /* PhotoViewCell.swift */; };
 		1AFF6D472BCDE438005AB337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFF6D462BCDE438005AB337 /* AppDelegate.swift */; };
 		1AFF6D492BCDE438005AB337 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFF6D482BCDE438005AB337 /* SceneDelegate.swift */; };
 		1AFF6D4B2BCDE438005AB337 /* PredatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFF6D4A2BCDE438005AB337 /* PredatorsViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		1A01433F2BCE73D500409C46 /* Predator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predator.swift; sourceTree = "<group>"; };
+		1A0143422BCE940700409C46 /* PredatorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorViewCell.swift; sourceTree = "<group>"; };
+		1A0143442BCEFCB600409C46 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		1AFF6D432BCDE438005AB337 /* PredatorsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PredatorsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFF6D462BCDE438005AB337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AFF6D482BCDE438005AB337 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1A0143412BCE93D400409C46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A0143422BCE940700409C46 /* PredatorViewCell.swift */,
+				1A0143442BCEFCB600409C46 /* PhotoViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1AFF6D3A2BCDE438005AB337 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +81,7 @@
 		1AFF6D452BCDE438005AB337 /* PredatorsApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A0143412BCE93D400409C46 /* Views */,
 				1A01433E2BCE73BE00409C46 /* Models */,
 				1AFF6D5E2BCDEDA4005AB337 /* Controllers */,
 				1AFF6D612BCDEDE6005AB337 /* LaunchScreen */,
@@ -183,8 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0143432BCE940700409C46 /* PredatorViewCell.swift in Sources */,
 				1A0143402BCE73D500409C46 /* Predator.swift in Sources */,
 				1AFF6D5B2BCDED2C005AB337 /* PredatorDetailsViewController.swift in Sources */,
+				1A0143452BCEFCB600409C46 /* PhotoViewCell.swift in Sources */,
 				1AFF6D4B2BCDE438005AB337 /* PredatorsViewController.swift in Sources */,
 				1AFF6D5D2BCDED54005AB337 /* ImageViewController.swift in Sources */,
 				1AFF6D472BCDE438005AB337 /* AppDelegate.swift in Sources */,
