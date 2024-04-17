@@ -8,10 +8,11 @@
 import UIKit
 
 final class PhotoViewCell: UITableViewCell {
-
+    
     lazy var cellView: UIView = {
         let cellView = UIView(frame: bounds)
-        cellView.backgroundColor = .secondarySystemBackground
+        cellView.backgroundColor = .appGray
+        
         return cellView
     }()
     
@@ -19,9 +20,9 @@ final class PhotoViewCell: UITableViewCell {
         let imageView = UIImageView(
             frame: CGRect(
                 x: 30,
-                y: 15,
+                y: 30,
                 width: cellView.bounds.width - 60,
-                height: 201
+                height: cellView.bounds.width - 230
             )
         )
         imageView.contentMode = .scaleAspectFill
