@@ -46,7 +46,6 @@ final class PredatorViewCell: UITableViewCell {
                 height: 163
             )
         )
-        
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30

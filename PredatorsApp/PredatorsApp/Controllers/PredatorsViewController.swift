@@ -56,6 +56,7 @@ extension PredatorsViewController: UITableViewDataSource {
         }
         
         let predator = predators[indexPath.row]
+        
         cell.setupCell(predator: predator)
         cell.selectionStyle = .none
         cell.completion = { [ weak self ] in

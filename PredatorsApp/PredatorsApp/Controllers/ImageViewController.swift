@@ -8,11 +8,9 @@
 import UIKit
 
 final class ImageViewController: UIViewController {
-
-    // MARK: - Public Properties
+    
     var selectedImage: UIImage?
     
-    // MARK: - UI Elements
     private lazy var mainImageView: UIImageView = {
         let imageView = UIImageView(
             frame: CGRect(
@@ -30,9 +28,12 @@ final class ImageViewController: UIViewController {
         return imageView
     }()
     
-    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    private func setupView() {
         view.backgroundColor = .white
         view.addSubview(mainImageView)
     }

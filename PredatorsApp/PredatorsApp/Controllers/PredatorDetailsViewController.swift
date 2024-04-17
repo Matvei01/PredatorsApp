@@ -7,10 +7,11 @@
 
 import UIKit
 
+// MARK: - PredatorDetailsViewController
 final class PredatorDetailsViewController: UIViewController {
     
     // MARK: - Public Properties
-    var predator: Predator!
+    var predator: Predator?
     
     // MARK: - Private Properties
     private let cellID = "photoCell"
@@ -27,7 +28,7 @@ final class PredatorDetailsViewController: UIViewController {
         )
         
         label.center.x = view.center.x
-        label.text = predator.name
+        label.text = predator?.name
         label.font = .systemFont(ofSize: 36, weight: .bold)
         label.textAlignment = .center
         
@@ -43,7 +44,7 @@ final class PredatorDetailsViewController: UIViewController {
                 height: 189
             )
         )
-        imageView.image = UIImage(named: predator.photo.largePhoto)
+        imageView.image = UIImage(named: predator?.photo.largePhoto ?? "")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
@@ -60,7 +61,7 @@ final class PredatorDetailsViewController: UIViewController {
                 height: 51
             )
         )
-        label.text = predator.description
+        label.text = predator?.description
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
@@ -135,7 +136,6 @@ extension PredatorDetailsViewController: UITableViewDataSource {
                 height: 30
             )
         )
-        
         label.text = "Фотографии"
         label.font = .boldSystemFont(ofSize: 20)
         headerView.addSubview(label)
@@ -148,7 +148,7 @@ extension PredatorDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        predator.photo.smallPhotos.count
+        predator?.photo.smallPhotos.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -156,7 +156,7 @@ extension PredatorDetailsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let photo = predator.photo.smallPhotos[indexPath.row]
+        let photo = predator?.photo.smallPhotos[indexPath.row] ?? ""
         
         cell.setupCell(image: UIImage(named: photo) ?? UIImage())
         cell.selectionStyle = .none
@@ -168,11 +168,11 @@ extension PredatorDetailsViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension PredatorDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.frame.width - 198
+        view.frame.width - 195
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPhoto = predator.photo.smallPhotos[indexPath.row]
+        let selectedPhoto = predator?.photo.smallPhotos[indexPath.row] ?? ""
         
         if let selectedImage = UIImage(named: selectedPhoto) {
             let imageVC = ImageViewController()
