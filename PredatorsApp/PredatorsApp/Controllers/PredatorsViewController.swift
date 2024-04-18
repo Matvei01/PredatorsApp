@@ -31,6 +31,7 @@ final class PredatorsViewController: UIViewController {
         setupView()
     }
     
+    // MARK: - Private Methods
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(predatorsTableView)
