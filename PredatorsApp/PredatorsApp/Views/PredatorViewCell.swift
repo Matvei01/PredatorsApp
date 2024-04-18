@@ -16,13 +16,13 @@ final class PredatorViewCell: UITableViewCell {
     var completion: ( () -> Void)?
     
     // MARK: - UI Elements
-    lazy var cellView: UIView = {
+    private lazy var cellView: UIView = {
         let cellView = UIView(frame: bounds)
         
         return cellView
     }()
     
-    lazy var predatorView: UIView = {
+    private lazy var predatorView: UIView = {
         let predatorView = UIView(
             frame: CGRect(
                 x: 30,
@@ -37,7 +37,7 @@ final class PredatorViewCell: UITableViewCell {
         return predatorView
     }()
     
-    lazy var largeImageView: UIImageView = {
+    private lazy var largeImageView: UIImageView = {
         let imageView = UIImageView(
             frame: CGRect(
                 x: 25,
@@ -53,7 +53,7 @@ final class PredatorViewCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var smallPhotosStackView: UIStackView = {
+    private lazy var smallPhotosStackView: UIStackView = {
         let stackView = UIStackView(
             frame: CGRect(
                 x: 25,
@@ -70,7 +70,7 @@ final class PredatorViewCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel(
             frame: CGRect(
                 x: 20,
@@ -79,14 +79,13 @@ final class PredatorViewCell: UITableViewCell {
                 height: 24
             )
         )
-        
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = .white
         
         return label
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel(
             frame: CGRect(
                 x: 20,
@@ -95,7 +94,6 @@ final class PredatorViewCell: UITableViewCell {
                 height: 51
             )
         )
-        
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
         label.numberOfLines = 0
@@ -103,7 +101,7 @@ final class PredatorViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var showDetailsButton: UIButton = {
+    private lazy var showDetailsButton: UIButton = {
         let button = UIButton(
             frame: CGRect(
                 x: 25,
@@ -129,7 +127,6 @@ final class PredatorViewCell: UITableViewCell {
     // MARK: - Override Methods
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        clipsToBounds = true
     }
     
     @available(*, unavailable)
@@ -145,6 +142,7 @@ final class PredatorViewCell: UITableViewCell {
         largeImageView.image = UIImage(named: predator.photo.largePhoto)
         
         nameLabel.text = predator.name
+        
         descriptionLabel.text = predator.description
         
         for photo in predator.photo.smallPhotos {
@@ -156,20 +154,22 @@ final class PredatorViewCell: UITableViewCell {
         }
     }
     
-    func addSubviews() {
+    // MARK: - Private Methods
+    private func addSubviews() {
         addSubview(cellView)
         
         cellView.addSubview(predatorView)
         
-        predatorView.addSubview(largeImageView)
-        predatorView.addSubview(smallPhotosStackView)
-        predatorView.addSubview(showDetailsButton)
+        for subview in [largeImageView, smallPhotosStackView, showDetailsButton] {
+            predatorView.addSubview(subview)
+        }
         
-        largeImageView.addSubview(nameLabel)
-        largeImageView.addSubview(descriptionLabel)
+        for subview in [nameLabel, descriptionLabel] {
+            largeImageView.addSubview(subview)
+        }
     }
     
-    func createImageView(image: UIImage) -> UIImageView {
+    private func createImageView(image: UIImage) -> UIImageView {
         let imageView = UIImageView()
         imageView.image = image
         imageView.layer.cornerRadius = 20

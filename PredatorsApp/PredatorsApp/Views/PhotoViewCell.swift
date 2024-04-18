@@ -9,14 +9,14 @@ import UIKit
 
 final class PhotoViewCell: UITableViewCell {
     
-    lazy var cellView: UIView = {
+    private lazy var cellView: UIView = {
         let cellView = UIView(frame: bounds)
         cellView.backgroundColor = .appGray
         
         return cellView
     }()
     
-    lazy var photoImageView: UIImageView = {
+    private lazy var photoImageView: UIImageView = {
         let imageView = UIImageView(
             frame: CGRect(
                 x: 30,
@@ -34,7 +34,6 @@ final class PhotoViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        clipsToBounds = true
     }
     
     @available(*, unavailable)
@@ -44,6 +43,7 @@ final class PhotoViewCell: UITableViewCell {
     
     func setupCell(image: UIImage) {
         addSubview(cellView)
+        
         cellView.addSubview(photoImageView)
         
         photoImageView.image = image

@@ -138,6 +138,7 @@ extension PredatorDetailsViewController: UITableViewDataSource {
         )
         label.text = "Фотографии"
         label.font = .boldSystemFont(ofSize: 20)
+        
         headerView.addSubview(label)
         
         return headerView
